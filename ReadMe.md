@@ -2,8 +2,6 @@
 
 Two macaroons Python demos for a school project.
 
-Photo sharing demo:
-
 ### Prerequisites
 
 ```
@@ -37,12 +35,25 @@ Bob wants to access a service on Alices Server. Alice wants Bob to be authentica
 
 #### Photo sharing demo
 
+A simple Demonstration of how macaroons can be used to facilitate sharing of a single photo of an album.
+
 ##### Goal of the demo
+
+Bob wants to share a single Photo from his Album with Alice.
+
+##### How to use
+
+1. Login and go to photo album
+    - Bob is now logged in to his photo album dashboard he recieved a macaroon as a cookie.
+2. Share Picture
+    - Bob is adding a caveat to his macaroon and has now generated a link that he can send to Alice
+3. Open a new private window and paste link
+    - Alice is authenticated but can only see the picture that Bob has shared
 
 
 ## Acknowledgments
 
-The auth demo is heaviliy based on this ReadMe:
+The auth demo is heavily based on this ReadMe:
 https://github.com/rescrv/libmacaroons/blob/master/README
 
 The photo sharing demo was inspired by:

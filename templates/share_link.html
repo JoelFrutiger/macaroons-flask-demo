@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         .tooltip {
             position: relative;
@@ -42,6 +42,7 @@
             opacity: 1;
         }
     </style>
+    <title>Photo Album Demo</title>
 </head>
 <body>
 
@@ -49,7 +50,7 @@
 
 {% if link %}
     <p>{{ link }}</p>
-    <input type="text" value="{{ link }}" id="myInput">
+    <input type="text" value="{{ link }}" style="width:200px" id="myInput">
 {% else %}
     <input type="text" value="" id="myInput">
 {% endif %}

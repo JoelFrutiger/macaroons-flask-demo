@@ -19,7 +19,7 @@ def login():
 
 
 @app.route('/home', methods=["POST"])
-def home():
+def photo_album_login():
     login_successful = True
     if login_successful:
         m = Macaroon(
@@ -38,7 +38,7 @@ def home():
 
 
 @app.route('/home', methods=["GET"])
-def homeGet():
+def photo_album():
     macaroonCookie = request.cookies.get('macaroonCookie')
     if macaroonCookie is not None and macaroonCookie != "":
         m = Macaroon.deserialize(macaroonCookie)
@@ -59,7 +59,7 @@ def homeGet():
 
 
 @app.route('/home/<int:picture_id>/<macaroon>', methods=["Get"])
-def home_get_with_macaroon(picture_id, macaroon):
+def access_picture_with_macaroon(picture_id, macaroon):
 
     m = Macaroon.deserialize(macaroon)
     v = Verifier()
@@ -88,6 +88,7 @@ def set_invalid_macaroon():
 def share_picture(picture_id):
     macaroon_cookie = request.cookies.get('macaroonCookie')
     if macaroon_cookie is not None and macaroon_cookie != "":
+        # Adding the caveat could be done on the client
         m = Macaroon.deserialize(macaroon_cookie)
         m.add_first_party_caveat('picture_id = ' + str(picture_id))
         serialized = m.serialize()
@@ -100,7 +101,7 @@ def share_picture(picture_id):
 
 @app.route('/set_as_cookie/<macaroon>')
 def set_cookie(macaroon):
-    resp = make_response("<a href='../home'>Go home</a>")
+    resp = make_response("<a href='../home'>Go to photo album</a>")
     resp.set_cookie('macaroonCookie', macaroon)
     return resp
 
