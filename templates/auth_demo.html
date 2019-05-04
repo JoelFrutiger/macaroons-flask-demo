@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AuthDemo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+<h1>Auth demo</h1>
+<h2>Alice:</h2>
+<form action='/get_macaroon'>
+    <input type="submit" value="Get Macaroon">
+</form>
+
+
+<h3>Inspected macaroon</h3>
+{% autoescape false %}
+{{macaroon}}
+{% endautoescape %}
+
+</body>
+</html>
