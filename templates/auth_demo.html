@@ -7,16 +7,35 @@
 </head>
 <body>
 <h1>Auth demo</h1>
-<h2>Alice:</h2>
-<form action='/get_macaroon'>
+{% if result %}
+    <h3>{{result}}</h3>
+{% endif %}
+<form action='/alice_server_get_macaroon'>
     <input type="submit" value="Get Macaroon">
 </form>
+{% if macaroon %}
+    <h3>Macaroon:</h3>
+    {% autoescape false %}
+        {{macaroon}}
+    {% endautoescape %}
 
+{% endif %}
+<form action='/auth_server_login/{{caveat_key}}/{{identifier}}'>
+    <input type="submit" value="Get discharge macaroon from Auth Server (Login)">
+</form>
 
-<h3>Inspected macaroon</h3>
-{% autoescape false %}
-{{macaroon}}
-{% endautoescape %}
-
+{% if discharge_macaroon %}
+    <h3>Discharge Macaroon:</h3>
+    {% autoescape false %}
+        {{discharge_macaroon}}
+    {% endautoescape %}
+{% endif %}
+<form action='/access_service'>
+    <input type="submit" value="Try to access Service">
+</form>
+<br/>
+<form action='/reset_cookies'>
+    <input type="submit" value="Reset Cookies">
+</form>
 </body>
 </html>
