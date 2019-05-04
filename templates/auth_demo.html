@@ -20,7 +20,12 @@
     {% endautoescape %}
 
 {% endif %}
-<form action='/auth_server_login/{{caveat_key}}/{{identifier}}'>
+<br/>
+<br/>
+<form action='/auth_server_login' method="Post">
+    Username:
+    <input type="text" value="Bob" name="username" id="username">
+    <br/>
     <input type="submit" value="Get discharge macaroon from Auth Server (Login)">
 </form>
 
@@ -30,12 +35,14 @@
         {{discharge_macaroon}}
     {% endautoescape %}
 {% endif %}
-<form action='/access_service'>
+<br/>
+<br/>
+<form action='/alice_server_access_service'>
     <input type="submit" value="Try to access Service">
 </form>
 <br/>
-<form action='/reset_cookies'>
-    <input type="submit" value="Reset Cookies">
+<form action='/reset_cookies_auth_server'>
+    <input type="submit" value="Reset Cookies / Auth Server">
 </form>
 </body>
 </html>
