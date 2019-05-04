@@ -45,7 +45,7 @@
 </head>
 <body>
 
-<p>Click on the button to copy the text from the text field. Try to paste the text (e.g. ctrl+v) afterwards in a different window, to see the effect.</p>
+<h2>Here's your link:</h2>
 
 {% if link %}
     <p>{{ link }}</p>
@@ -54,16 +54,12 @@
     <input type="text" value="" id="myInput">
 {% endif %}
 
-
-
 <div class="tooltip">
     <button onclick="myFunction()" onmouseout="outFunc()">
         <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
         Copy text
     </button>
 </div>
-
-<p>The document.execCommand() method is not supported in IE8 and earlier.</p>
 
 <script>
     function myFunction() {
@@ -82,7 +78,7 @@
 </script>
 
 <form action='/set_as_cookie/{{macaroon}}'>
-    <input type="submit" value="Set as cookie">
+    <input type="submit" value="Try to access full photo album">
 </form>
 
 </body>

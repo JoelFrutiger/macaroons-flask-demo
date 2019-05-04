@@ -31,12 +31,16 @@
       </div>
      {% endif %}
 </div>
+{% else %}
+<h1>Unauthorized</h1>
 {% endif %}
-<form action='/get-macaroon-from-cookie'>
-        <input type="submit" value="Get Macaroon from Cookie">
-</form>
 
-<h3>Inspected macaroon</h3>
+<br/>
+<h3>Macaroon</h3>
 {% autoescape false %}
     {{macaroon}}
 {% endautoescape %}
+<br/>
+<form action='/get-macaroon-from-cookie'>
+    <input type="submit" value="Get Macaroon from Cookie">
+</form>
