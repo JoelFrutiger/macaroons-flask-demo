@@ -1,0 +1,42 @@
+<!doctype html>
+<head>
+    <title>Flask app</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  </head>
+<title>Home</title>
+{% if showimages %}
+ <div class="row">
+     {% if images[0] %}
+      <div class="column">
+        <img src="https://www.w3schools.com/howto/img_snow.jpg" alt="Snow" style="width:100%">
+          <form action='/share_picture/0'>
+              <input type="submit" value="Share Picture">
+          </form>
+      </div>
+     {% endif %}
+     {% if images[1] %}
+      <div class="column">
+        <img src="https://www.w3schools.com/howto/img_forest.jpg" alt="Forest" style="width:100%">
+          <form action='/share_picture/1'>
+              <input type="submit" value="Share Picture">
+          </form>
+      </div>
+     {% endif %}
+     {% if images[2] %}
+      <div class="column">
+        <img src="https://www.w3schools.com/howto/img_mountains.jpg" alt="Mountains" style="width:100%">
+          <form action='/share_picture/2'>
+              <input type="submit" value="Share Picture">
+          </form>
+      </div>
+     {% endif %}
+</div>
+{% endif %}
+<form action='/get-macaroon-from-cookie'>
+        <input type="submit" value="Get Macaroon from Cookie">
+</form>
+
+<h3>Inspected macaroon</h3>
+{% autoescape false %}
+    {{macaroon}}
+{% endautoescape %}
